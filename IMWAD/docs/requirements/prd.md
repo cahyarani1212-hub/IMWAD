@@ -1,466 +1,303 @@
-# PRODUCT REQUIREMENTS DOCUMENT (PRD)
-
-## Rancang Bangun Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar Berbasis Web untuk Mendukung Pemantauan Minat Belajar
-
----
+# Product Requirements Document (PRD)
 
 ## 1. Informasi Dokumen
 
-| Informasi | Keterangan |
+| Item | Keterangan |
 |---|---|
-| Nama Produk | Sistem Monitoring Perubahan Sosial dan Emosional Siswa SD |
+| Nama | Setia Cahya Rani |
+| Proyek | Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar |
+| Judul | Rancang Bangun Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar Berbasis Web untuk Mendukung Pemantauan Minat Belajar |
 | Platform | Website |
-| Penyusun | Setia Cahya Rani |
-| Program Studi | Teknik Informatika |
-| Mata Kuliah | Intelligent Mobile and Web Application Development |
-| Versi Dokumen | 1.0 |
+| Dokumen | Product Requirements Document (PRD) |
 | Status | Draft |
 
 ---
 
 # 2. Executive Summary
 
-Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar Berbasis Web merupakan rancangan sistem informasi yang bertujuan membantu guru melakukan pencatatan dan pemantauan perkembangan sosial, emosional, serta minat belajar siswa secara terstruktur.
+Sistem yang dirancang merupakan sistem monitoring berbasis web yang membantu sekolah dalam melakukan pencatatan dan pemantauan perubahan sosial dan emosional siswa sekolah dasar serta mendukung pemantauan minat belajar.
 
-Sistem menyediakan fitur untuk mengelola data siswa, melakukan monitoring berdasarkan indikator, menyimpan hasil berdasarkan periode, melihat riwayat perkembangan, membandingkan hasil monitoring, serta menambahkan catatan observasi guru.
+Sistem membantu guru menyimpan hasil monitoring secara terstruktur sehingga perkembangan siswa dapat dilihat berdasarkan riwayat monitoring dari waktu ke waktu.
 
-Sistem dirancang sebagai alat bantu monitoring dan bukan sebagai alat diagnosis psikologis. Hasil monitoring digunakan sebagai informasi pendukung bagi guru dalam memahami perubahan siswa dan menentukan tindak lanjut pendidikan yang sesuai.
+Sistem tidak digunakan untuk memberikan diagnosis psikologis kepada siswa.
 
-Informasi mengenai kondisi nyata sekolah, jumlah siswa, metode pencatatan yang sedang digunakan, serta tingkat kesulitan guru dalam melakukan monitoring masih perlu diverifikasi melalui observasi dan wawancara.
+Fokus utama sistem adalah membantu proses monitoring, pencatatan, penyimpanan riwayat, dan perbandingan perkembangan siswa.
 
 ---
 
 # 3. Problem Statement
 
-## 3.1 Permasalahan
+## Masalah
 
-Perkembangan sosial dan emosional siswa merupakan salah satu aspek yang dapat diperhatikan dalam kegiatan pendidikan selain kemampuan akademik.
+Pemantauan perkembangan sosial dan emosional siswa dapat dilakukan melalui pengamatan guru. Namun, apabila hasil pengamatan masih dicatat secara manual, data perkembangan siswa dapat sulit disimpan, ditelusuri, dan dibandingkan antarperiode.
 
-Guru dapat memperoleh informasi perkembangan siswa melalui pengamatan selama kegiatan belajar dan interaksi di lingkungan sekolah. Namun, apabila hasil pengamatan tidak dicatat secara terstruktur, informasi tersebut dapat menjadi sulit untuk ditelusuri kembali dan dibandingkan antarperiode.
+Perubahan kondisi sosial, emosional, dan minat belajar siswa juga dapat sulit diketahui secara terstruktur apabila hasil monitoring sebelumnya tidak terdokumentasi dengan baik.
 
-Selain itu, minat belajar siswa juga perlu diperhatikan karena dapat terlihat melalui ketertarikan, keaktifan, keterlibatan, dan ketekunan siswa dalam kegiatan pembelajaran.
+## Dampak Masalah
 
-Berdasarkan permasalahan tersebut, diperlukan rancangan sistem yang dapat membantu guru:
+Masalah tersebut dapat menyebabkan:
 
-1. mencatat hasil monitoring siswa;
-2. menyimpan data berdasarkan periode;
-3. melihat riwayat perkembangan;
-4. membandingkan hasil monitoring;
-5. mencatat hasil observasi;
-6. memantau aspek sosial, emosional, dan minat belajar.
+- riwayat monitoring siswa sulit ditelusuri;
+- guru membutuhkan waktu lebih banyak untuk mencari catatan sebelumnya;
+- perubahan perkembangan siswa antarperiode sulit dibandingkan;
+- hasil monitoring belum tersimpan secara terstruktur;
+- informasi perkembangan siswa sulit digunakan sebagai bahan pemantauan lanjutan.
+
+> Catatan: Pernyataan yang belum didukung hasil observasi, wawancara, atau survei akan ditandai sebagai `[ASUMSI-XX]` dan perlu diverifikasi.
 
 ---
 
 # 4. Evidence
 
-Pada tahap penyusunan PRD ini belum tersedia data hasil observasi atau wawancara langsung dari sekolah.
+## Fakta
 
-Oleh karena itu, informasi dibedakan menjadi fakta konteks dan asumsi.
+Pada tahap awal pengembangan, bukti lapangan berupa hasil observasi, wawancara, atau survei belum sepenuhnya tersedia.
 
-| Pernyataan | Status | Cara Verifikasi |
+Oleh karena itu, sistem tidak membuat klaim bahwa seluruh sekolah mengalami masalah yang sama.
+
+## Asumsi
+
+| Kode | Pernyataan | Status |
 |---|---|---|
-| Guru dapat mengamati perilaku siswa dalam kegiatan sekolah | Fakta konteks | Observasi |
-| Sistem berbasis web dapat digunakan untuk menyimpan data | Fakta teknis | Implementasi |
-| Pencatatan monitoring perlu dilakukan secara terstruktur | Kebutuhan desain | Analisis kebutuhan |
-| Guru mengalami kesulitan menggunakan pencatatan yang ada | [ASUMSI-01] | Wawancara |
-| Guru membutuhkan perbandingan antarperiode | [ASUMSI-02] | Wawancara |
-| Sekolah membutuhkan sistem monitoring berbasis web | [ASUMSI-03] | Observasi dan wawancara |
-| Orang tua membutuhkan akses ke sistem | [ASUMSI-04] | Wawancara |
+| ASUMSI-01 | Guru membutuhkan pencatatan monitoring siswa yang lebih terstruktur | Perlu verifikasi |
+| ASUMSI-02 | Riwayat monitoring siswa diperlukan untuk melihat perubahan perkembangan | Perlu verifikasi |
+| ASUMSI-03 | Monitoring sosial, emosional, dan minat belajar dapat dilakukan secara berkala | Perlu verifikasi |
+| ASUMSI-04 | Guru membutuhkan informasi perubahan hasil monitoring antarperiode | Perlu verifikasi |
+| ASUMSI-05 | Website dapat digunakan sebagai media monitoring oleh guru | Perlu verifikasi |
+| ASUMSI-06 | Skala monitoring awal menggunakan skala 1–4 | Perlu validasi |
 
 ---
 
-# 5. Tujuan Produk
+# 5. Target User
 
-Tujuan produk:
+## Admin
 
-1. Membantu guru melakukan monitoring perkembangan siswa secara terstruktur.
-2. Menyediakan penyimpanan data monitoring berdasarkan siswa dan periode.
-3. Membantu guru melihat riwayat monitoring siswa.
-4. Membantu guru melihat perubahan hasil monitoring antarperiode.
-5. Mendukung pemantauan minat belajar.
-6. Menyediakan catatan observasi sebagai informasi pendukung.
-7. Menyediakan pengelolaan hak akses.
-8. Menjaga agar informasi hasil monitoring tidak dianggap sebagai diagnosis.
+Admin bertugas mengelola data dasar sistem.
 
----
+Kebutuhan:
 
-# 6. Target Users
+- mengelola akun pengguna;
+- mengelola data guru;
+- mengelola data siswa;
+- mengelola data kelas;
+- mengatur hak akses pengguna.
 
-## 6.1 Guru
+## Guru
 
-Guru merupakan pengguna utama sistem.
+Guru merupakan pengguna utama sistem dalam proses monitoring.
 
-Kebutuhan guru:
+Kebutuhan:
 
 - melihat data siswa;
-- melakukan monitoring;
-- mengisi indikator;
-- menyimpan hasil;
-- melihat riwayat;
-- membandingkan periode;
-- menambahkan catatan.
+- melakukan monitoring sosial;
+- melakukan monitoring emosional;
+- melakukan monitoring minat belajar;
+- menambahkan catatan observasi;
+- melihat riwayat monitoring;
+- membandingkan perkembangan siswa antarperiode.
 
-## 6.2 Admin
+## Siswa
 
-Admin bertanggung jawab terhadap pengelolaan sistem.
+Siswa merupakan pengguna yang dapat melihat informasi perkembangan dirinya sesuai hak akses yang diberikan.
 
-Kebutuhan admin:
+Kebutuhan:
 
-- mengelola pengguna;
-- mengelola data siswa;
-- mengelola kelas;
-- mengatur hak akses;
-- mengelola indikator.
-
-## 6.3 Siswa
-
-Siswa merupakan objek yang dimonitor.
-
-Pada rancangan awal siswa belum menjadi pengguna langsung sistem.
-
-**[ASUMSI-05]** Hal ini perlu dikonfirmasi melalui analisis kebutuhan.
-
-## 6.4 Pakar
-
-Pakar digunakan untuk membantu melakukan validasi terhadap indikator monitoring.
+- melihat hasil monitoring yang diperbolehkan;
+- melihat perkembangan dirinya;
+- melihat informasi yang diberikan guru.
 
 ---
 
-# 7. Stakeholders
+# 6. Stakeholders
 
-| Stakeholder | Kepentingan | Peran |
+| Stakeholder | Peran | Kebutuhan |
 |---|---|---|
-| Guru | Monitoring siswa | Pengguna utama |
-| Siswa | Perkembangan sosial, emosional dan minat belajar | Objek monitoring |
-| Sekolah | Pengelolaan informasi siswa | Stakeholder |
-| Admin | Pengelolaan sistem | Administrator |
-| Pakar | Validasi indikator | Validator |
-| Orang tua/wali | Informasi perkembangan siswa | Stakeholder [ASUMSI-04] |
-| Pengembang | Pengembangan sistem | Developer |
+| Admin | Pengelola sistem | Pengelolaan pengguna dan data |
+| Guru | Pengguna utama | Monitoring dan pemantauan perkembangan siswa |
+| Siswa | Pengguna | Melihat informasi perkembangan dirinya |
+| Sekolah | Pihak terkait | Mendukung proses monitoring siswa |
 
 ---
 
-# 8. Persona
+# 7. Persona
 
-## Persona 1 - Guru
+## Persona 1 — Guru
 
-**Peran:** Guru kelas
-
-**Tujuan:**
-- melakukan monitoring;
-- mencatat hasil pengamatan;
-- melihat perubahan siswa;
-- mengetahui riwayat siswa.
-
-**Kendala:**
-- jumlah siswa cukup banyak;
-- waktu melakukan pencatatan terbatas;
-- membutuhkan informasi yang mudah ditemukan.
+**Nama:** Bu Rina  
+**Peran:** Guru Sekolah Dasar
 
 **Kebutuhan:**
-- form sederhana;
-- pencarian siswa;
-- riwayat;
-- perbandingan periode;
-- catatan observasi.
+
+Bu Rina membutuhkan cara yang lebih terstruktur untuk mencatat hasil pengamatan perkembangan siswa dan melihat perubahan hasil monitoring dari waktu ke waktu.
+
+**Tujuan:**
+
+- mencatat hasil monitoring;
+- melihat riwayat siswa;
+- membandingkan perkembangan;
+- memberikan catatan observasi.
 
 ---
 
-## Persona 2 - Siswa
+## Persona 2 — Siswa
 
-**Peran:** Objek monitoring
+**Nama:** Andi  
+**Peran:** Siswa Sekolah Dasar
 
-Siswa menjadi objek yang diamati pada aspek sosial, emosional, dan minat belajar.
+**Kebutuhan:**
 
----
+Andi membutuhkan informasi sederhana mengenai perkembangan dirinya yang dapat ditampilkan sesuai hak akses.
 
-## Persona 3 - Pakar
+**Tujuan:**
 
-**Peran:** Validator indikator
-
-Pakar memberikan penilaian terhadap kesesuaian indikator yang digunakan dalam sistem.
-
----
-
-# 9. Value Proposition
-
-Sistem memberikan satu tempat terstruktur bagi guru untuk mencatat dan memantau perkembangan siswa.
-
-Nilai utama:
-
-1. Pencatatan lebih terstruktur.
-2. Data dapat disimpan berdasarkan periode.
-3. Riwayat monitoring dapat dilihat kembali.
-4. Perubahan antarperiode dapat dibandingkan.
-5. Catatan observasi dapat disimpan.
-6. Akses data dapat dibatasi berdasarkan peran.
+- melihat perkembangan diri;
+- memahami informasi yang diberikan guru;
+- mengetahui bagian yang perlu diperhatikan.
 
 ---
 
-# 10. Fitur Produk
+# 8. Value Proposition
 
-## Fitur utama
+## Pain yang Dikurangi
 
-1. Login.
-2. Dashboard.
-3. Pengelolaan data siswa.
-4. Pengelolaan kelas.
-5. Pengelolaan indikator.
-6. Monitoring sosial.
-7. Monitoring emosional.
-8. Monitoring minat belajar.
-9. Catatan observasi.
-10. Riwayat monitoring.
-11. Perbandingan antarperiode.
-12. Ringkasan hasil monitoring.
-13. Filter data.
-14. Validasi indikator.
-15. Pengaturan hak akses.
+- pencatatan monitoring yang tidak terstruktur;
+- kesulitan mencari riwayat monitoring;
+- kesulitan membandingkan hasil monitoring antarperiode.
+
+## Gain yang Diciptakan
+
+- data monitoring tersimpan secara terstruktur;
+- riwayat perkembangan lebih mudah ditelusuri;
+- guru dapat melihat perubahan hasil monitoring;
+- monitoring sosial, emosional, dan minat belajar berada dalam satu sistem.
+
+## Nilai Sistem
+
+Sistem memberikan nilai dengan membantu guru melakukan monitoring perkembangan siswa secara lebih terstruktur dan terdokumentasi.
 
 ---
 
-# 11. Indikator Monitoring Awal
+# 9. Indikator Monitoring Awal
 
-## 11.1 Sosial
+## A. Sosial
 
 Indikator awal:
 
-- interaksi dengan teman;
-- kemampuan bekerja sama;
-- komunikasi;
-- partisipasi dalam kelompok;
-- kemampuan membantu atau menerima bantuan.
+1. Interaksi dengan teman.
+2. Kemampuan bekerja sama.
+3. Komunikasi.
+4. Partisipasi dalam kegiatan.
+5. Kemauan membantu.
 
-## 11.2 Emosional
-
-Indikator awal:
-
-- mengenali emosi;
-- mengendalikan respons;
-- merespons perubahan situasi;
-- kemampuan meminta bantuan;
-- konsistensi respons.
-
-## 11.3 Minat Belajar
+## B. Emosional
 
 Indikator awal:
 
-- ketertarikan mengikuti pembelajaran;
-- keaktifan;
-- kemauan menyelesaikan tugas;
-- rasa ingin tahu;
-- ketekunan.
+1. Kemampuan mengenali emosi.
+2. Kemampuan mengendalikan respons.
+3. Respons terhadap perubahan.
+4. Kemauan meminta bantuan.
+5. Konsistensi perilaku.
 
-**Catatan:** indikator tersebut merupakan rancangan awal dan harus divalidasi oleh pakar sebelum digunakan sebagai instrumen final.
+## C. Minat Belajar
+
+Indikator awal:
+
+1. Ketertarikan terhadap pembelajaran.
+2. Keaktifan mengikuti pembelajaran.
+3. Penyelesaian tugas.
+4. Rasa ingin tahu.
+5. Ketekunan.
+
+> Indikator di atas merupakan indikator awal dan perlu divalidasi sebelum digunakan sebagai indikator final sistem.
 
 ---
 
-# 12. Konsep Skala
+# 10. Skala Monitoring
 
-Contoh rancangan skala:
+Skala awal yang direncanakan:
 
 | Nilai | Keterangan |
 |---|---|
 | 1 | Belum terlihat |
 | 2 | Mulai terlihat |
-| 3 | Sering terlihat |
-| 4 | Konsisten terlihat |
+| 3 | Berkembang |
+| 4 | Berkembang sangat baik |
 
-**[ASUMSI-06]** Skala tersebut harus divalidasi oleh pakar.
-
----
-
-# 13. Konsep Perubahan
-
-Sistem menyimpan hasil monitoring berdasarkan periode.
-
-Contoh:
-
-| Aspek | Periode 1 | Periode 2 | Perubahan |
-|---|---:|---:|---|
-| Sosial | 2 | 3 | Meningkat |
-| Emosional | 2 | 3 | Meningkat |
-| Minat Belajar | 3 | 4 | Meningkat |
-
-Sistem hanya menunjukkan perubahan berdasarkan data yang dimasukkan.
-
-Sistem tidak melakukan diagnosis.
+**Catatan:** Skala 1–4 merupakan `[ASUMSI-06]` dan harus divalidasi sebelum digunakan pada sistem final.
 
 ---
 
-# 14. KPI
+# 11. Goals Produk
 
-| KPI | Target Awal | Metode Pengukuran |
-|---|---:|---|
-| Data monitoring berhasil disimpan | ≥95% | Functional testing |
-| Waktu respons halaman utama | ≤3 detik | Performance testing |
-| Ketepatan perbandingan | 100% | Dataset pengujian |
-| Pengguna berhasil menyelesaikan tugas utama | ≥80% | Usability testing |
-| Akses tidak sah | 0 kasus | Security testing |
-| Transaksi berhasil | ≥95% | Functional testing |
+## Goal 1
 
-Target dapat disesuaikan setelah dilakukan pengujian nyata.
+Membantu guru melakukan pencatatan monitoring sosial, emosional, dan minat belajar siswa secara terstruktur.
 
----
+## Goal 2
 
-# 15. MoSCoW Scope
+Menyediakan riwayat hasil monitoring siswa.
 
-## MUST HAVE
+## Goal 3
 
-- Login.
-- Data siswa.
-- Data kelas.
-- Monitoring sosial.
-- Monitoring emosional.
-- Monitoring minat belajar.
-- Penyimpanan hasil monitoring.
-- Riwayat.
-- Perbandingan.
-- Catatan observasi.
-- Hak akses.
-- Informasi non-diagnostik.
+Membantu guru melihat perubahan hasil monitoring antarperiode.
 
-## SHOULD HAVE
+## Goal 4
 
-- Filter.
-- Ringkasan hasil.
-- Validasi indikator.
-- Export laporan.
-
-## COULD HAVE
-
-- Grafik perkembangan.
-- Pengingat monitoring.
-- Akses orang tua.
-
-## WON'T HAVE
-
-- Diagnosis psikologis.
-- Rekomendasi klinis.
-- Penentuan hukuman.
-- Pemeringkatan siswa.
-- Keputusan otomatis terhadap siswa.
+Mendukung pemantauan minat belajar siswa berdasarkan hasil monitoring.
 
 ---
 
-# 16. Non-Goals
+# 12. KPI
 
-Sistem tidak digunakan untuk:
-
-1. melakukan diagnosis psikologis;
-2. menentukan kondisi mental siswa;
-3. memberikan label negatif;
-4. menentukan hukuman;
-5. menggantikan guru;
-6. menggantikan pakar;
-7. memberikan keputusan klinis;
-8. mengumpulkan data pribadi yang tidak diperlukan.
-
----
-
-# 17. Business Rules Tingkat Produk
-
-1. Setiap hasil monitoring harus berkaitan dengan siswa.
-2. Setiap monitoring harus memiliki periode.
-3. Monitoring dilakukan berdasarkan indikator yang telah ditentukan.
-4. Indikator perlu divalidasi sebelum digunakan sebagai instrumen final.
-5. Data siswa hanya dapat diakses pengguna yang memiliki kewenangan.
-6. Hasil monitoring bukan diagnosis.
-7. Sistem tidak memberikan label negatif.
-8. Sistem tidak menentukan hukuman.
-9. Keputusan tindak lanjut tetap berada pada guru/pihak berwenang.
-
----
-
-# 18. Risiko
-
-| Risiko | Dampak | Mitigasi |
+| KPI | Target Awal | Cara Mengukur |
 |---|---|---|
-| Indikator tidak sesuai | Hasil monitoring kurang tepat | Validasi pakar |
-| Data siswa bocor | Risiko privasi | Hak akses dan keamanan |
-| Guru tidak rutin mengisi | Data tidak lengkap | Form sederhana |
-| Hasil disalahartikan | Label negatif | Bahasa non-diagnostik |
-| Sistem terlalu kompleks | Sulit digunakan | Batasi fitur utama |
-| AI menghasilkan hasil salah | Keputusan tidak tepat | AI opsional dan human review |
+| Monitoring siswa berhasil dicatat | ≥ 90% percobaan | Pengujian fungsional |
+| Riwayat monitoring dapat ditampilkan | 100% data valid | Pengujian sistem |
+| Perbandingan antarperiode dapat ditampilkan | 100% data valid | Pengujian sistem |
+| Data siswa hanya dapat diakses sesuai hak akses | 100% skenario pengujian | Security testing |
+| Pengguna dapat menyelesaikan proses monitoring | ≥ 80% pengguna uji | Usability testing |
+
+> Target KPI merupakan target awal dan dapat disesuaikan setelah pengujian.
 
 ---
 
-# 19. Asumsi
+# 13. Scope 3 Bulan — MoSCoW
 
-| ID | Asumsi | Cara Verifikasi |
-|---|---|---|
-| ASUMSI-01 | Pencatatan yang ada menjadi kendala | Wawancara |
-| ASUMSI-02 | Guru membutuhkan perbandingan | Wawancara |
-| ASUMSI-03 | Sekolah membutuhkan sistem web | Observasi |
-| ASUMSI-04 | Orang tua membutuhkan akses | Wawancara |
-| ASUMSI-05 | Siswa bukan pengguna langsung | Analisis kebutuhan |
-| ASUMSI-06 | Skala 1–4 sesuai | Validasi pakar |
-
----
-
-# 20. Keputusan Penggunaan AI
-
-AI belum menjadi fitur wajib.
-
-Alasannya:
-
-1. Sistem utama dapat berjalan tanpa AI.
-2. Dataset siswa belum tersedia.
-3. Akurasi AI harus diuji.
-4. Data siswa memiliki kebutuhan privasi.
-5. Keputusan terhadap siswa tidak boleh sepenuhnya diberikan kepada AI.
-
-Jika AI ditambahkan, diperlukan:
-
-- dataset;
-- tujuan AI;
-- metrik evaluasi;
-- accuracy;
-- latency;
-- privacy;
-- fallback;
-- human review.
-
----
-
-# 21. Success Criteria
-
-Produk dianggap memenuhi tujuan awal apabila:
-
-- guru dapat login;
-- guru dapat memilih siswa;
-- guru dapat melakukan monitoring;
-- hasil dapat disimpan;
-- riwayat dapat ditampilkan;
-- dua periode dapat dibandingkan;
-- catatan dapat disimpan;
-- hak akses berjalan;
-- sistem memberikan informasi non-diagnostik.
-
----
-
-# 22. Traceability Awal
-
-| Goal | Requirement |
+| Prioritas | Fitur |
 |---|---|
-| GO-01 Pencatatan | FR-03, FR-04, FR-05, FR-06 |
-| GO-02 Riwayat | FR-07 |
-| GO-03 Perbandingan | FR-08 |
-| GO-04 Minat belajar | FR-05 |
-| GO-05 Catatan observasi | FR-09 |
-| GO-06 Keamanan | FR-11, NFR-04, NFR-05 |
+| MUST | Login pengguna |
+| MUST | Pengelolaan data siswa |
+| MUST | Pengelolaan data kelas |
+| MUST | Monitoring sosial |
+| MUST | Monitoring emosional |
+| MUST | Monitoring minat belajar |
+| MUST | Riwayat monitoring |
+| MUST | Catatan observasi guru |
+| SHOULD | Perbandingan hasil monitoring antarperiode |
+| SHOULD | Filter data siswa |
+| SHOULD | Ringkasan perkembangan |
+| COULD | Notifikasi monitoring |
+| WON'T | Diagnosis psikologis siswa |
+| WON'T | Penentuan kondisi mental siswa secara otomatis |
 
 ---
 
-# 23. Status PRD
+# 14. Non-Goals
 
-Status dokumen:
+Sistem tidak ditujukan untuk:
 
-**Draft**
+1. Mendiagnosis gangguan psikologis.
+2. Menentukan kondisi mental siswa.
+3. Menggantikan guru dalam melakukan observasi.
+4. Memberikan keputusan otomatis mengenai siswa.
+5. Menentukan siswa bermasalah berdasarkan satu hasil monitoring.
+6. Menggunakan metode SAW.
+7. Menggunakan metode TOPSIS.
+8. Menjadi sistem konseling profesional.
 
-Dokumen akan diperbarui setelah:
+---
 
-1. observasi;
-2. wawancara;
-3. analisis kebutuhan;
-4. validasi indikator oleh pakar.
+# 15. Business Rules
+
+1.
