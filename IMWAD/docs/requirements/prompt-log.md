@@ -58,7 +58,47 @@ Oleh karena itu, dibutuhkan sistem berbasis web yang dapat membantu:
 
 ---
 
-# 4. Prompt 01 — Penyusunan PRD
+# 4. Pengguna Sistem
+
+Pengguna sistem terdiri dari:
+
+### 1. Admin
+
+Admin bertugas mengelola data dasar sistem, seperti:
+
+- data pengguna;
+- data guru;
+- data siswa;
+- data kelas;
+- hak akses pengguna.
+
+### 2. Guru
+
+Guru merupakan pengguna utama sistem dalam proses monitoring.
+
+Guru dapat:
+
+- melihat data siswa;
+- melakukan monitoring sosial siswa;
+- melakukan monitoring emosional siswa;
+- melakukan monitoring minat belajar;
+- memberikan catatan observasi;
+- melihat riwayat monitoring;
+- membandingkan hasil monitoring antarperiode.
+
+### 3. Siswa
+
+Siswa dapat menggunakan sistem untuk:
+
+- melihat informasi perkembangan dirinya;
+- melihat hasil monitoring yang diperbolehkan;
+- melihat informasi atau saran yang diberikan sistem.
+
+Siswa tidak dapat mengubah hasil monitoring yang telah diberikan oleh guru.
+
+---
+
+# 5. Prompt 01 — Penyusunan PRD
 
 ## Prompt
 
@@ -85,7 +125,16 @@ PRD harus mencakup:
 13. Business Rules
 14. Pertimbangan penggunaan AI
 
-Jangan membuat sistem hanya sebagai dashboard. Sistem harus memiliki fungsi untuk menyelesaikan masalah monitoring perkembangan siswa.
+Pengguna sistem hanya terdiri dari:
+1. Admin
+2. Guru
+3. Siswa
+
+Jangan menambahkan Pakar atau Ahli sebagai pengguna sistem.
+
+Sistem harus memiliki fungsi untuk menyelesaikan masalah monitoring perkembangan siswa dan tidak hanya menjadi dashboard.
+
+Sistem digunakan untuk monitoring dan bukan untuk diagnosis psikologis.
 
 Jika terdapat informasi yang belum tersedia, tandai sebagai [ASUMSI-XX] agar dapat diverifikasi kemudian.
 
