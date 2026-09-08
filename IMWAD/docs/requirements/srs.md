@@ -1,34 +1,23 @@
-# SOFTWARE REQUIREMENTS SPECIFICATION (SRS)
+# Software Requirements Specification (SRS)
 
-## Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar Berbasis Web
+## 1. Informasi Dokumen
 
----
-
-# 1. Informasi Dokumen
-
-| Informasi | Keterangan |
+| Item | Keterangan |
 |---|---|
-| Nama Sistem | Sistem Monitoring Perubahan Sosial dan Emosional Siswa SD |
+| Nama | Setia Cahya Rani |
+| Proyek | Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar |
+| Judul | Rancang Bangun Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar Berbasis Web untuk Mendukung Pemantauan Minat Belajar |
 | Platform | Website |
-| Penyusun | Setia Cahya Rani |
-| Program Studi | Teknik Informatika |
-| Versi | 1.0 |
+| Dokumen | Software Requirements Specification (SRS) |
 | Status | Draft |
 
 ---
 
-# 2. Purpose
+# 2. Tujuan
 
-Dokumen Software Requirements Specification (SRS) digunakan untuk menjelaskan kebutuhan perangkat lunak dari sistem monitoring perubahan sosial dan emosional siswa sekolah dasar berbasis web.
+SRS digunakan untuk mendefinisikan kebutuhan perangkat lunak dari sistem monitoring perubahan sosial dan emosional siswa sekolah dasar.
 
-SRS menjadi dasar untuk:
-
-- perancangan sistem;
-- perancangan database;
-- perancangan antarmuka;
-- implementasi;
-- pengujian;
-- evaluasi.
+Dokumen ini menjadi dasar dalam proses pengembangan, pengujian, dan evaluasi sistem.
 
 ---
 
@@ -36,365 +25,339 @@ SRS menjadi dasar untuk:
 
 Sistem mencakup:
 
-- login;
 - pengelolaan pengguna;
-- pengelolaan siswa;
+- pengelolaan data siswa;
 - pengelolaan kelas;
-- pengelolaan indikator;
 - monitoring sosial;
 - monitoring emosional;
 - monitoring minat belajar;
+- penyimpanan riwayat monitoring;
 - catatan observasi;
-- riwayat monitoring;
-- perbandingan antarperiode;
-- ringkasan;
-- filter;
-- validasi indikator;
-- hak akses.
+- perbandingan hasil monitoring;
+- ringkasan perkembangan.
 
 Sistem tidak mencakup diagnosis psikologis.
 
 ---
 
-# 4. Definitions
+# 4. Definisi
 
 | Istilah | Definisi |
 |---|---|
-| Monitoring | Proses pencatatan dan pemantauan berdasarkan indikator |
+| Monitoring | Proses pencatatan dan pemantauan perkembangan siswa |
+| Indikator | Aspek yang digunakan dalam proses monitoring |
 | Periode | Waktu pelaksanaan monitoring |
-| Indikator | Aspek yang digunakan dalam monitoring |
-| Pakar | Pihak yang memvalidasi indikator |
-| FR | Functional Requirement |
-| NFR | Non-Functional Requirement |
-| AI | Artificial Intelligence |
-| RBAC | Role-Based Access Control |
+| Riwayat | Kumpulan hasil monitoring dari beberapa periode |
+| Guru | Pengguna utama yang melakukan monitoring |
+| Admin | Pengguna yang mengelola data dasar sistem |
+| Siswa | Pengguna yang dapat melihat informasi perkembangan dirinya |
 
 ---
 
-# 5. User Roles
+# 5. User dan Stakeholder
 
-## 5.1 Admin
+## Admin
 
-Hak akses:
+Admin mengelola:
 
-- login;
-- mengelola pengguna;
-- mengelola kelas;
-- mengelola siswa;
-- mengelola indikator.
+- pengguna;
+- guru;
+- siswa;
+- kelas;
+- hak akses.
 
-## 5.2 Guru
+## Guru
 
-Hak akses:
+Guru melakukan:
 
-- login;
-- melihat siswa;
-- melakukan monitoring;
+- monitoring sosial;
+- monitoring emosional;
+- monitoring minat belajar;
+- pencatatan observasi;
 - melihat riwayat;
-- membandingkan periode;
-- membuat catatan observasi.
+- membandingkan hasil monitoring.
 
-## 5.3 Pakar
+## Siswa
 
-Hak akses:
+Siswa dapat:
 
-- melihat indikator;
-- melakukan validasi indikator;
-- memberikan status validasi.
-
-## 5.4 Siswa
-
-Siswa merupakan objek monitoring dan belum menjadi pengguna langsung pada versi awal.
+- melihat hasil monitoring yang diperbolehkan;
+- melihat informasi perkembangan dirinya.
 
 ---
 
-# 6. Environment
+# 6. Lingkungan Operasi
 
-Sistem merupakan aplikasi berbasis web.
+Sistem dirancang sebagai aplikasi berbasis website.
 
 Lingkungan penggunaan:
 
-- komputer/laptop;
+- komputer atau laptop;
 - browser modern;
-- server aplikasi;
-- database;
-- jaringan internet atau jaringan lokal sekolah.
+- jaringan internet atau jaringan lokal sesuai lingkungan implementasi.
 
-**[ASUMSI-07]** Infrastruktur jaringan sekolah perlu diverifikasi.
+Detail teknologi dapat ditentukan pada tahap desain dan implementasi.
 
 ---
 
-# 7. Functional Requirements
+# 7. Asumsi
+
+| Kode | Asumsi |
+|---|---|
+| ASUMSI-01 | Guru melakukan monitoring siswa secara berkala |
+| ASUMSI-02 | Sekolah membutuhkan penyimpanan monitoring terstruktur |
+| ASUMSI-03 | Riwayat monitoring diperlukan |
+| ASUMSI-04 | Hasil monitoring dapat dibandingkan antarperiode |
+| ASUMSI-05 | Sistem digunakan melalui browser |
+| ASUMSI-06 | Skala monitoring awal menggunakan skala 1–4 |
+
+---
+
+# 8. Functional Requirements
 
 ## FR-01 — Login
 
-**Prioritas:** MUST HAVE
+**Requirement:**
 
-Sistem harus menyediakan halaman login.
+Sistem harus dapat melakukan autentikasi pengguna saat pengguna memasukkan username dan password yang valid.
 
-### Input
+**Output:**
 
-- username/email;
-- password.
+Pengguna diarahkan ke halaman sesuai hak akses.
 
-### Proses
+**Prioritas:** MUST
 
-Sistem memvalidasi kredensial pengguna.
-
-### Output
-
-Jika benar:
-
-> Pengguna diarahkan ke dashboard.
-
-Jika salah:
-
-> Sistem menampilkan pesan kesalahan.
-
-### Verifikasi
-
-Black-box testing.
+**Verifikasi:** Functional Testing
 
 ---
 
-# FR-02 — Pengelolaan Pengguna
+## FR-02 — Pengelolaan Pengguna
 
-**Prioritas:** MUST HAVE
+**Requirement:**
 
-Admin dapat:
+Sistem harus memungkinkan Admin menambah, mengubah, dan menghapus data pengguna.
 
-- menambah pengguna;
-- melihat pengguna;
-- mengubah pengguna;
-- menonaktifkan pengguna;
-- menentukan role.
+**Output:**
 
-### Verifikasi
+Data pengguna tersimpan atau diperbarui.
 
-Functional testing.
+**Prioritas:** MUST
+
+**Verifikasi:** Functional Testing
 
 ---
 
-# FR-03 — Pengelolaan Data Siswa
+## FR-03 — Pengelolaan Data Siswa
 
-**Prioritas:** MUST HAVE
+**Requirement:**
 
-Pengguna berwenang dapat mengelola data siswa.
+Sistem harus memungkinkan Admin mengelola data siswa.
 
-Data minimal:
+**Output:**
 
-- ID siswa;
-- nama;
-- kelas;
-- status.
+Data siswa dapat ditambahkan, diubah, dan ditampilkan.
 
-### Verifikasi
+**Prioritas:** MUST
 
-Functional testing.
+**Verifikasi:** Functional Testing
 
 ---
 
-# FR-04 — Monitoring Sosial
+## FR-04 — Pengelolaan Kelas
 
-**Prioritas:** MUST HAVE
+**Requirement:**
 
-Guru dapat melakukan monitoring aspek sosial siswa berdasarkan indikator yang tersedia.
+Sistem harus memungkinkan Admin mengelola data kelas dan hubungan siswa dengan kelas.
 
-Guru harus memilih:
+**Output:**
 
-- siswa;
-- periode;
-- indikator;
-- nilai/jawaban.
+Data kelas dan siswa tersimpan sesuai kelas.
 
-### Verifikasi
+**Prioritas:** MUST
 
-Functional testing.
+**Verifikasi:** Functional Testing
 
 ---
 
-# FR-05 — Monitoring Emosional
+## FR-05 — Monitoring Sosial
 
-**Prioritas:** MUST HAVE
+**Requirement:**
 
-Guru dapat melakukan monitoring aspek emosional siswa berdasarkan indikator yang tersedia.
+Sistem harus memungkinkan Guru mencatat hasil monitoring indikator sosial siswa pada periode tertentu.
 
-### Verifikasi
+**Output:**
 
-Functional testing.
+Hasil monitoring sosial tersimpan berdasarkan siswa dan periode.
 
----
+**Prioritas:** MUST
 
-# FR-06 — Monitoring Minat Belajar
-
-**Prioritas:** MUST HAVE
-
-Guru dapat melakukan monitoring minat belajar siswa berdasarkan indikator yang tersedia.
-
-### Verifikasi
-
-Functional testing.
+**Verifikasi:** Functional Testing
 
 ---
 
-# FR-07 — Riwayat Monitoring
+## FR-06 — Monitoring Emosional
 
-**Prioritas:** MUST HAVE
+**Requirement:**
 
-Sistem harus menampilkan riwayat monitoring berdasarkan:
+Sistem harus memungkinkan Guru mencatat hasil monitoring indikator emosional siswa pada periode tertentu.
 
-- siswa;
-- kategori;
-- periode.
+**Output:**
 
-Riwayat ditampilkan secara kronologis.
+Hasil monitoring emosional tersimpan berdasarkan siswa dan periode.
 
-### Verifikasi
+**Prioritas:** MUST
 
-Black-box testing.
+**Verifikasi:** Functional Testing
 
 ---
 
-# FR-08 — Perbandingan Antarperiode
+## FR-07 — Monitoring Minat Belajar
 
-**Prioritas:** MUST HAVE
+**Requirement:**
 
-Sistem harus memungkinkan guru memilih minimal dua periode monitoring untuk dibandingkan.
+Sistem harus memungkinkan Guru mencatat hasil monitoring indikator minat belajar siswa pada periode tertentu.
 
-Output minimal:
+**Output:**
 
-- nilai periode pertama;
-- nilai periode kedua;
-- nilai perubahan;
-- status perubahan.
+Hasil monitoring minat belajar tersimpan berdasarkan siswa dan periode.
 
-### Verifikasi
+**Prioritas:** MUST
 
-Functional testing menggunakan dataset uji.
+**Verifikasi:** Functional Testing
 
 ---
 
-# FR-09 — Catatan Observasi
+## FR-08 — Catatan Observasi
 
-**Prioritas:** MUST HAVE
+**Requirement:**
 
-Guru dapat menambahkan catatan observasi.
+Sistem harus memungkinkan Guru menambahkan catatan observasi pada hasil monitoring siswa.
 
-Catatan memiliki:
+**Output:**
 
-- siswa;
-- isi catatan;
-- pengguna pencatat;
-- waktu pencatatan.
+Catatan observasi tersimpan dan dapat ditampilkan kembali.
 
-### Verifikasi
+**Prioritas:** MUST
 
-Functional testing.
+**Verifikasi:** Functional Testing
 
 ---
 
-# FR-10 — Filter Monitoring
+## FR-09 — Riwayat Monitoring
 
-**Prioritas:** SHOULD HAVE
+**Requirement:**
 
-Sistem menyediakan filter berdasarkan:
+Sistem harus menampilkan riwayat monitoring siswa berdasarkan periode.
 
-- kelas;
-- siswa;
-- kategori;
-- periode.
+**Output:**
 
-### Verifikasi
+Data monitoring dari periode sebelumnya dapat ditampilkan.
 
-Black-box testing.
+**Prioritas:** MUST
 
----
-
-# FR-11 — Hak Akses
-
-**Prioritas:** MUST HAVE
-
-Sistem harus menerapkan hak akses berdasarkan role.
-
-Contoh:
-
-Admin:
-
-- mengelola pengguna.
-
-Guru:
-
-- melakukan monitoring.
-
-Pakar:
-
-- melakukan validasi indikator.
-
-### Verifikasi
-
-Security testing.
+**Verifikasi:** Functional Testing
 
 ---
 
-# FR-12 — Validasi Indikator
+## FR-10 — Perbandingan Monitoring
 
-**Prioritas:** SHOULD HAVE
+**Requirement:**
 
-Sistem dapat menyimpan status validasi indikator.
+Sistem harus dapat membandingkan hasil monitoring siswa dari minimal dua periode yang tersedia.
 
-Status:
+**Output:**
 
-- Draft;
-- Review;
-- Disetujui.
+Perubahan hasil monitoring antarperiode dapat ditampilkan.
 
-### Verifikasi
+**Prioritas:** SHOULD
 
-Functional testing.
+**Verifikasi:** Functional Testing
 
 ---
 
-# FR-13 — Ringkasan Monitoring
+## FR-11 — Filter Data
 
-**Prioritas:** SHOULD HAVE
+**Requirement:**
 
-Sistem menampilkan ringkasan hasil monitoring berdasarkan data yang tersedia.
+Sistem harus memungkinkan Guru memfilter data monitoring berdasarkan kelas, siswa, dan periode.
 
-Ringkasan tidak boleh memberikan diagnosis.
+**Output:**
 
-### Verifikasi
+Sistem menampilkan data sesuai filter yang dipilih.
 
-Functional testing.
+**Prioritas:** SHOULD
 
----
-
-# FR-14 — Pesan Non-Diagnostik
-
-**Prioritas:** MUST HAVE
-
-Sistem harus menampilkan informasi bahwa hasil monitoring bukan diagnosis psikologis.
-
-Contoh:
-
-> "Hasil monitoring merupakan informasi pendukung dan bukan diagnosis psikologis."
-
-### Verifikasi
-
-UI inspection.
+**Verifikasi:** Functional Testing
 
 ---
 
-# 8. Non-Functional Requirements
+## FR-12 — Informasi Perkembangan Siswa
+
+**Requirement:**
+
+Sistem harus menampilkan informasi perkembangan siswa berdasarkan hasil monitoring yang tersimpan.
+
+**Output:**
+
+Informasi perkembangan ditampilkan kepada pengguna yang memiliki hak akses.
+
+**Prioritas:** SHOULD
+
+**Verifikasi:** Functional Testing
+
+---
+
+## FR-13 — Akses Siswa
+
+**Requirement:**
+
+Sistem harus memungkinkan siswa melihat informasi perkembangan dirinya sesuai hak akses.
+
+**Output:**
+
+Siswa hanya dapat melihat data dirinya sendiri.
+
+**Prioritas:** SHOULD
+
+**Verifikasi:** Security Testing
+
+---
+
+## FR-14 — Pembatasan Diagnosis
+
+**Requirement:**
+
+Sistem harus menampilkan informasi bahwa hasil monitoring bukan merupakan diagnosis psikologis.
+
+**Output:**
+
+Pesan pembatasan ditampilkan pada bagian yang relevan.
+
+**Prioritas:** MUST
+
+**Verifikasi:** Inspection
+
+---
+
+# 9. Non-Functional Requirements
 
 ## NFR-01 — Usability
 
 **Kategori ISO/IEC 25010:** Usability
 
-**Metric:** Persentase pengguna yang berhasil menyelesaikan tugas utama.
+**Requirement:**
 
-**Target:** ≥80%.
+Sistem harus dapat digunakan oleh pengguna uji untuk menyelesaikan proses monitoring tanpa bantuan teknis khusus.
 
-**Kondisi pengukuran:** Usability testing.
+**Target:**
+
+Minimal 80% pengguna uji dapat menyelesaikan tugas utama.
+
+**Kondisi ukur:**
+
+Usability testing.
+
+**Verifikasi:** Usability Testing
 
 ---
 
@@ -402,11 +365,13 @@ UI inspection.
 
 **Kategori ISO/IEC 25010:** Performance Efficiency
 
-**Metric:** Waktu respons halaman.
+**Requirement:**
 
-**Target:** ≤3 detik pada lingkungan pengujian.
+Halaman utama dan halaman monitoring harus memberikan respons dalam waktu maksimal 3 detik pada kondisi pengujian yang ditentukan.
 
-**Kondisi pengukuran:** Performance testing.
+**Target:** ≤ 3 detik
+
+**Verifikasi:** Performance Testing
 
 ---
 
@@ -414,11 +379,13 @@ UI inspection.
 
 **Kategori ISO/IEC 25010:** Reliability
 
-**Metric:** Persentase transaksi berhasil.
+**Requirement:**
 
-**Target:** ≥95%.
+Data monitoring yang berhasil disimpan harus dapat ditampilkan kembali.
 
-**Kondisi pengukuran:** Pengujian penyimpanan monitoring.
+**Target:** 100% data valid dapat ditemukan kembali.
+
+**Verifikasi:** Functional Testing
 
 ---
 
@@ -426,11 +393,13 @@ UI inspection.
 
 **Kategori ISO/IEC 25010:** Security
 
-**Metric:** Jumlah akses tidak sah yang berhasil.
+**Requirement:**
 
-**Target:** 0 kasus.
+Sistem harus membatasi akses data berdasarkan role pengguna.
 
-**Kondisi pengukuran:** Security testing.
+**Target:** 100% skenario pengujian akses tidak sah ditolak.
+
+**Verifikasi:** Security Testing
 
 ---
 
@@ -438,11 +407,13 @@ UI inspection.
 
 **Kategori ISO/IEC 25010:** Security
 
-**Metric:** Kepatuhan akses berdasarkan role.
+**Requirement:**
 
-**Target:** 100% skenario sesuai hak akses.
+Data siswa hanya dapat diakses oleh pengguna yang memiliki hak akses.
 
-**Kondisi pengukuran:** Role-based access testing.
+**Target:** Tidak terdapat akses data siswa tanpa hak.
+
+**Verifikasi:** Security Testing
 
 ---
 
@@ -450,11 +421,13 @@ UI inspection.
 
 **Kategori ISO/IEC 25010:** Maintainability
 
-**Metric:** Struktur kode dan dokumentasi modul.
+**Requirement:**
 
-**Target:** Modul utama memiliki struktur dan dokumentasi yang jelas.
+Kode sistem harus disusun secara terstruktur sehingga perubahan pada satu fungsi tidak mengharuskan perubahan pada seluruh sistem.
 
-**Kondisi pengukuran:** Code review.
+**Target:** Modul utama dapat diperbarui secara terpisah.
+
+**Verifikasi:** Code Inspection
 
 ---
 
@@ -462,11 +435,13 @@ UI inspection.
 
 **Kategori ISO/IEC 25010:** Compatibility
 
-**Metric:** Browser yang dapat menjalankan sistem.
+**Requirement:**
 
-**Target:** Minimal 2 browser modern.
+Sistem harus dapat digunakan pada browser modern yang umum digunakan.
 
-**Kondisi pengukuran:** Compatibility testing.
+**Target:** Berhasil diuji pada minimal dua browser.
+
+**Verifikasi:** Compatibility Testing
 
 ---
 
@@ -474,57 +449,214 @@ UI inspection.
 
 **Kategori ISO/IEC 25010:** Functional Suitability
 
-**Metric:** Ketepatan hasil perbandingan.
+**Requirement:**
 
-**Target:** 100% pada dataset pengujian.
+Sistem harus menyimpan hasil monitoring sesuai nilai yang dimasukkan oleh Guru.
 
-**Kondisi pengukuran:** Functional testing.
+**Target:** 100% data pengujian tersimpan sesuai input.
 
----
-
-## NFR-09 — AI Accuracy
-
-**Kategori:** AI Performance
-
-**Metric:** Accuracy/Precision/Recall/F1-score sesuai jenis model.
-
-**Target:** Ditentukan setelah AI dan dataset ditetapkan.
-
-**Kondisi:** Evaluasi model.
-
-**Status:** Tidak aktif apabila sistem tidak menggunakan AI.
+**Verifikasi:** Functional Testing
 
 ---
 
-## NFR-10 — AI Latency dan Fallback
+# 10. Kebutuhan Data
 
-**Kategori:** Performance Efficiency/Reliability
+## Data User
 
-**Metric:** Waktu respons AI dan keberhasilan fallback.
+Data minimal:
 
-**Target:** Ditentukan setelah fitur AI dirancang.
+- user_id;
+- nama;
+- username;
+- password;
+- role.
 
-**Kondisi:** AI testing.
+## Data Siswa
 
-**Fallback:**
+Data minimal:
 
-Jika AI gagal, sistem tetap menyediakan monitoring manual.
+- student_id;
+- nama siswa;
+- kelas;
+- informasi identitas yang diperlukan.
 
-**Status:** Tidak aktif apabila sistem tidak menggunakan AI.
+## Data Kelas
+
+Data minimal:
+
+- class_id;
+- nama kelas;
+- wali/guru terkait.
+
+## Data Indikator
+
+Data minimal:
+
+- indicator_id;
+- kategori;
+- nama indikator;
+- deskripsi indikator;
+- status aktif.
+
+Kategori indikator:
+
+- sosial;
+- emosional;
+- minat belajar.
+
+## Data Monitoring
+
+Data minimal:
+
+- monitoring_id;
+- student_id;
+- teacher_id;
+- periode;
+- indicator_id;
+- nilai;
+- tanggal monitoring.
+
+## Data Observasi
+
+Data minimal:
+
+- observation_id;
+- monitoring_id;
+- teacher_id;
+- catatan;
+- tanggal.
 
 ---
 
-# 9. Data Requirements
+# 11. Aturan Bisnis
 
-## 9.1 User
+1. Pengguna harus login sebelum mengakses sistem.
+2. Setiap pengguna memiliki role.
+3. Admin mengelola data dasar sistem.
+4. Guru melakukan monitoring siswa.
+5. Siswa hanya dapat melihat informasi dirinya sendiri.
+6. Guru hanya dapat mengakses siswa sesuai kewenangannya.
+7. Hasil monitoring memiliki periode.
+8. Nilai monitoring harus berada pada rentang skala yang ditentukan.
+9. Catatan observasi dapat ditambahkan oleh Guru.
+10. Data monitoring tidak boleh dihapus tanpa hak akses.
+11. Hasil monitoring tidak digunakan sebagai diagnosis psikologis.
+12. Sistem tidak menentukan keputusan akhir terhadap siswa.
 
-```text
-user_id
-nama
-username
-email
-password_hash
-role
-status
-created_at
-updated_at
+---
+
+# 12. Security Requirements
+
+Sistem harus:
+
+1. Melakukan autentikasi pengguna.
+2. Menggunakan role-based access control.
+3. Membatasi akses data berdasarkan role.
+4. Mencegah siswa mengakses data siswa lain.
+5. Membatasi Admin dan Guru sesuai hak akses.
+6. Melindungi data login pengguna.
+7. Tidak menampilkan data siswa kepada pengguna yang tidak memiliki hak.
+
+---
+
+# 13. Privacy Requirements
+
+Data siswa harus diperlakukan sebagai data yang membutuhkan perlindungan.
+
+Sistem harus:
+
+- membatasi akses data;
+- menyimpan hanya data yang diperlukan;
+- tidak menampilkan data siswa secara terbuka;
+- menggunakan data sesuai kebutuhan sistem;
+- tidak menggunakan hasil monitoring untuk diagnosis;
+- mempertimbangkan izin dan ketentuan sekolah dalam penggunaan data penelitian.
+
+---
+
+# 14. Acceptance Criteria
+
+Sistem dapat dianggap memenuhi kebutuhan apabila:
+
+- [ ] Admin dapat login.
+- [ ] Guru dapat login.
+- [ ] Siswa dapat login.
+- [ ] Admin dapat mengelola data siswa.
+- [ ] Guru dapat melakukan monitoring sosial.
+- [ ] Guru dapat melakukan monitoring emosional.
+- [ ] Guru dapat melakukan monitoring minat belajar.
+- [ ] Guru dapat menambahkan catatan observasi.
+- [ ] Riwayat monitoring dapat ditampilkan.
+- [ ] Data antarperiode dapat dibandingkan.
+- [ ] Siswa hanya dapat melihat data dirinya.
+- [ ] Data tidak dapat diakses oleh pengguna tanpa hak.
+- [ ] Sistem menampilkan batasan bahwa monitoring bukan diagnosis.
+
+---
+
+# 15. Traceability Matrix
+
+| PRD | SRS | Verification |
+|---|---|---|
+| Monitoring sosial | FR-05 | Functional Testing |
+| Monitoring emosional | FR-06 | Functional Testing |
+| Monitoring minat belajar | FR-07 | Functional Testing |
+| Catatan observasi | FR-08 | Functional Testing |
+| Riwayat monitoring | FR-09 | Functional Testing |
+| Perbandingan antarperiode | FR-10 | Functional Testing |
+| Filter data | FR-11 | Functional Testing |
+| Informasi perkembangan | FR-12 | Functional Testing |
+| Akses siswa | FR-13 | Security Testing |
+| Batasan diagnosis | FR-14 | Inspection |
+| Usability | NFR-01 | Usability Testing |
+| Performance | NFR-02 | Performance Testing |
+| Reliability | NFR-03 | Functional Testing |
+| Security | NFR-04 | Security Testing |
+| Privacy | NFR-05 | Security Testing |
+| Maintainability | NFR-06 | Code Inspection |
+| Compatibility | NFR-07 | Compatibility Testing |
+| Functional Correctness | NFR-08 | Functional Testing |
+
+---
+
+# 16. Metode Verifikasi
+
+| Requirement | Metode |
+|---|---|
+| FR-01 | Functional Testing |
+| FR-02 | Functional Testing |
+| FR-03 | Functional Testing |
+| FR-04 | Functional Testing |
+| FR-05 | Functional Testing |
+| FR-06 | Functional Testing |
+| FR-07 | Functional Testing |
+| FR-08 | Functional Testing |
+| FR-09 | Functional Testing |
+| FR-10 | Functional Testing |
+| FR-11 | Functional Testing |
+| FR-12 | Functional Testing |
+| FR-13 | Security Testing |
+| FR-14 | Inspection |
+| NFR-01 | Usability Testing |
+| NFR-02 | Performance Testing |
+| NFR-03 | Functional Testing |
+| NFR-04 | Security Testing |
+| NFR-05 | Security Testing |
+| NFR-06 | Code Inspection |
+| NFR-07 | Compatibility Testing |
+| NFR-08 | Functional Testing |
+
+---
+
+# 17. Status Dokumen
+
+**Status:** Draft
+
+SRS akan diperbarui berdasarkan hasil:
+
+- observasi;
+- wawancara;
+- survei;
+- validasi indikator;
+- review dosen;
+- pengujian sistem.
