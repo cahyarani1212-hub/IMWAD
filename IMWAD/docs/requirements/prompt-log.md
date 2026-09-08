@@ -1,103 +1,92 @@
 # Prompt Log
 
-## Identitas
+## 1. Informasi Dokumen
 
-**Nama:** Setia Cahya Rani
-
-**Judul:**
-Rancang Bangun Sistem Monitoring Perubahan Sosial dan Emosional
-Siswa Sekolah Dasar Berbasis Web untuk Mendukung Pemantauan Minat Belajar
+| Item | Keterangan |
+|---|---|
+| Nama | Setia Cahya Rani |
+| Mata Kuliah | Intelligent Mobile and Web Application Development |
+| Proyek | Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar |
+| Judul | Rancang Bangun Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar Berbasis Web untuk Mendukung Pemantauan Minat Belajar |
+| Dokumen | Prompt Log |
+| Status | Draft |
 
 ---
 
-# Prompt 01 — Penyusunan PRD
+# 2. Tujuan Prompt Log
 
-## Tujuan
-Menyusun draft PRD berdasarkan kasus penelitian.
+Prompt Log digunakan untuk mendokumentasikan proses penggunaan AI dalam membantu penyusunan dokumen kebutuhan sistem.
+
+Dokumen ini mencatat:
+
+1. Konteks yang diberikan kepada AI.
+2. Prompt yang digunakan.
+3. Tujuan dari setiap prompt.
+4. Hasil yang diharapkan.
+5. Proses review dan perbaikan.
+6. Asumsi yang muncul selama proses penyusunan.
+7. Penerapan prinsip Responsible AI.
+
+Prompt Log dibuat agar proses penyusunan PRD dan SRS dapat ditelusuri dan diketahui bagian mana yang berasal dari kebutuhan proyek, asumsi, maupun hasil bantuan AI.
+
+---
+
+# 3. Konteks Awal Proyek
+
+Proyek yang dikembangkan adalah sistem monitoring berbasis web yang digunakan untuk membantu sekolah dalam memantau perubahan sosial dan emosional siswa sekolah dasar serta mendukung pemantauan minat belajar.
+
+Sistem ditujukan terutama untuk membantu guru dalam melakukan pencatatan dan pemantauan perkembangan siswa secara berkala.
+
+Sistem tidak digunakan untuk memberikan diagnosis psikologis atau menentukan kondisi mental siswa.
+
+### Permasalahan Awal
+
+Pemantauan perkembangan sosial dan emosional siswa dapat dilakukan melalui pengamatan guru, tetapi hasil pengamatan dapat sulit ditelusuri apabila masih dilakukan secara manual.
+
+Selain itu, perubahan perilaku siswa dari satu periode ke periode lainnya dapat sulit dibandingkan apabila data tidak tersimpan secara terstruktur.
+
+Oleh karena itu, dibutuhkan sistem berbasis web yang dapat membantu:
+
+- mencatat hasil monitoring siswa;
+- menyimpan riwayat monitoring;
+- membandingkan perubahan antarperiode;
+- mencatat catatan observasi guru;
+- memantau indikator sosial;
+- memantau indikator emosional;
+- memantau indikator minat belajar;
+- memberikan informasi perkembangan siswa secara terstruktur.
+
+---
+
+# 4. Prompt 01 — Penyusunan PRD
 
 ## Prompt
 
-[Tulis prompt yang digunakan]
+```text
+Saya sedang mengembangkan proyek skripsi dengan judul:
 
-## Output AI
+"Rancang Bangun Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar Berbasis Web untuk Mendukung Pemantauan Minat Belajar"
 
-[Tulis/ringkas hasil AI]
+Buatkan Product Requirements Document (PRD) untuk sistem tersebut.
 
-## Review Manual
+PRD harus mencakup:
+1. Executive Summary
+2. Problem Statement
+3. Evidence
+4. Target Users
+5. Stakeholders
+6. Persona
+7. Value Proposition
+8. Goals dan KPI
+9. Scope menggunakan MoSCoW
+10. Non-goals
+11. Assumptions
+12. Risks
+13. Business Rules
+14. Pertimbangan penggunaan AI
 
-- [ ] Problem statement sesuai dengan kasus
-- [ ] Fakta dan asumsi dipisahkan
-- [ ] Tidak terdapat klaim tanpa bukti
-- [ ] Target user jelas
-- [ ] KPI dapat diukur
-- [ ] Scope menggunakan MoSCoW
+Jangan membuat sistem hanya sebagai dashboard. Sistem harus memiliki fungsi untuk menyelesaikan masalah monitoring perkembangan siswa.
 
-## Revisi
+Jika terdapat informasi yang belum tersedia, tandai sebagai [ASUMSI-XX] agar dapat diverifikasi kemudian.
 
-[Tulis perubahan yang dilakukan setelah review]
-
----
-
-# Prompt 02 — Review PRD
-
-## Prompt
-
-[Tulis prompt review PRD]
-
-## Hasil Review AI
-
-[Hasil review]
-
-## Revisi Manual
-
-[Perubahan yang dilakukan]
-
----
-
-# Prompt 03 — Penyusunan SRS
-
-## Prompt
-
-[Tulis prompt SRS]
-
-## Output AI
-
-[Hasil AI]
-
-## Review Manual
-
-- [ ] Semua FR memiliki ID
-- [ ] Semua NFR memiliki ID
-- [ ] Prioritas MoSCoW tersedia
-- [ ] Requirement dapat diuji
-- [ ] Metode verifikasi tersedia
-- [ ] Traceability tersedia
-
-## Revisi
-
-[Perubahan yang dilakukan]
-
----
-
-# Prompt 04 — Review SRS
-
-## Prompt
-
-[Tulis prompt review SRS]
-
-## Hasil Review
-
-[Hasil review]
-
-## Revisi Manual
-
-[Perubahan yang dilakukan]
-
----
-
-# Kesimpulan Prompting
-
-AI digunakan sebagai alat bantu dalam penyusunan PRD dan SRS.
-Hasil dari AI ditinjau dan direvisi secara manual.
-Asumsi yang belum memiliki bukti ditandai dengan [ASUMSI-XX]
-untuk diverifikasi lebih lanjut.
+Jangan menggunakan metode SAW atau TOPSIS.
