@@ -8,6 +8,7 @@
 | Mata Kuliah | Intelligent Mobile and Web Application Development |
 | Proyek | Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar |
 | Judul | Rancang Bangun Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar Berbasis Web untuk Mendukung Pemantauan Minat Belajar |
+| Platform | Website |
 | Dokumen | Prompt Log |
 | Status | Draft |
 
@@ -15,127 +16,91 @@
 
 # 2. Tujuan Prompt Log
 
-Prompt Log digunakan untuk mendokumentasikan proses penggunaan AI dalam membantu penyusunan dokumen kebutuhan sistem.
+Prompt Log digunakan untuk mendokumentasikan proses penyusunan dokumen PRD dan SRS dengan bantuan prompt.
 
 Dokumen ini mencatat:
 
-1. Konteks yang diberikan kepada AI.
+1. Konteks proyek.
 2. Prompt yang digunakan.
-3. Tujuan dari setiap prompt.
+3. Tujuan setiap prompt.
 4. Hasil yang diharapkan.
-5. Proses review dan perbaikan.
-6. Asumsi yang muncul selama proses penyusunan.
-7. Penerapan prinsip Responsible AI.
+5. Proses review.
+6. Asumsi yang muncul.
+7. Perbaikan setelah review.
 
-Prompt Log dibuat agar proses penyusunan PRD dan SRS dapat ditelusuri dan diketahui bagian mana yang berasal dari kebutuhan proyek, asumsi, maupun hasil bantuan AI.
+Penggunaan AI pada tahap ini hanya untuk membantu proses penyusunan dan pemeriksaan dokumen.
+
+AI bukan merupakan fitur dari sistem yang dirancang.
+
+Sistem yang dikembangkan tidak menggunakan AI.
 
 ---
 
 # 3. Konteks Awal Proyek
 
-Proyek yang dikembangkan adalah sistem monitoring berbasis web yang digunakan untuk membantu sekolah dalam memantau perubahan sosial dan emosional siswa sekolah dasar serta mendukung pemantauan minat belajar.
-
-Sistem ditujukan terutama untuk membantu guru dalam melakukan pencatatan dan pemantauan perkembangan siswa secara berkala.
-
-Sistem tidak digunakan untuk memberikan diagnosis psikologis atau menentukan kondisi mental siswa.
-
-### Permasalahan Awal
-
-Pemantauan perkembangan sosial dan emosional siswa dapat dilakukan melalui pengamatan guru, tetapi hasil pengamatan dapat sulit ditelusuri apabila masih dilakukan secara manual.
-
-Selain itu, perubahan perilaku siswa dari satu periode ke periode lainnya dapat sulit dibandingkan apabila data tidak tersimpan secara terstruktur.
-
-Oleh karena itu, dibutuhkan sistem berbasis web yang dapat membantu:
-
-- mencatat hasil monitoring siswa;
-- menyimpan riwayat monitoring;
-- membandingkan perubahan antarperiode;
-- mencatat catatan observasi guru;
-- memantau indikator sosial;
-- memantau indikator emosional;
-- memantau indikator minat belajar;
-- memberikan informasi perkembangan siswa secara terstruktur.
-
----
-
-# 4. Pengguna Sistem
-
-Pengguna sistem terdiri dari:
-
-### 1. Admin
-
-Admin bertugas mengelola data dasar sistem, seperti:
-
-- data pengguna;
-- data guru;
-- data siswa;
-- data kelas;
-- hak akses pengguna.
-
-### 2. Guru
-
-Guru merupakan pengguna utama sistem dalam proses monitoring.
-
-Guru dapat:
-
-- melihat data siswa;
-- melakukan monitoring sosial siswa;
-- melakukan monitoring emosional siswa;
-- melakukan monitoring minat belajar;
-- memberikan catatan observasi;
-- melihat riwayat monitoring;
-- membandingkan hasil monitoring antarperiode.
-
-### 3. Siswa
-
-Siswa dapat menggunakan sistem untuk:
-
-- melihat informasi perkembangan dirinya;
-- melihat hasil monitoring yang diperbolehkan;
-- melihat informasi atau saran yang diberikan sistem.
-
-Siswa tidak dapat mengubah hasil monitoring yang telah diberikan oleh guru.
-
----
-
-# 5. Prompt 01 — Penyusunan PRD
-
-## Prompt
-
-```text
-Saya sedang mengembangkan proyek skripsi dengan judul:
+Judul proyek:
 
 "Rancang Bangun Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar Berbasis Web untuk Mendukung Pemantauan Minat Belajar"
 
-Buatkan Product Requirements Document (PRD) untuk sistem tersebut.
+Sistem merupakan website yang membantu guru melakukan monitoring perubahan sosial dan emosional siswa serta mendukung pemantauan minat belajar.
 
-PRD harus mencakup:
-1. Executive Summary
-2. Problem Statement
-3. Evidence
-4. Target Users
-5. Stakeholders
-6. Persona
-7. Value Proposition
-8. Goals dan KPI
-9. Scope menggunakan MoSCoW
-10. Non-goals
-11. Assumptions
-12. Risks
-13. Business Rules
-14. Pertimbangan penggunaan AI
+Pengguna sistem:
 
-Pengguna sistem hanya terdiri dari:
 1. Admin
 2. Guru
 3. Siswa
 
-Jangan menambahkan Pakar atau Ahli sebagai pengguna sistem.
+Sistem tidak menggunakan AI sebagai bagian dari fitur.
 
-Sistem harus memiliki fungsi untuk menyelesaikan masalah monitoring perkembangan siswa dan tidak hanya menjadi dashboard.
+Sistem juga tidak digunakan untuk melakukan diagnosis psikologis siswa.
 
-Sistem digunakan untuk monitoring dan bukan untuk diagnosis psikologis.
+---
 
-Jika terdapat informasi yang belum tersedia, tandai sebagai [ASUMSI-XX] agar dapat diverifikasi kemudian.
+# 4. Prompt 01 — Penyusunan PRD
 
-Jangan menggunakan metode SAW atau TOPSIS.
+## Prompt
+
+```text
+Kamu adalah requirements analyst yang membantu menyusun Product Requirements Document (PRD).
+
+Susun PRD untuk proyek:
+
+"Rancang Bangun Sistem Monitoring Perubahan Sosial dan Emosional Siswa Sekolah Dasar Berbasis Web untuk Mendukung Pemantauan Minat Belajar"
+
+Sistem berbasis website.
+
+Pengguna:
+1. Admin
+2. Guru
+3. Siswa
+
+Fitur utama:
+- login;
+- pengelolaan data siswa;
+- pengelolaan kelas;
+- monitoring sosial;
+- monitoring emosional;
+- monitoring minat belajar;
+- riwayat monitoring;
+- catatan observasi;
+- perbandingan hasil monitoring antarperiode.
+
+PRD harus mencakup:
+- Executive Summary;
+- Problem Statement;
+- Evidence;
+- Target User;
+- Stakeholder;
+- Persona;
+- Value Proposition;
+- Goals dan KPI;
+- Scope MoSCoW;
+- Non-goals;
+- Assumptions;
+- Risks.
+
+Jangan menambahkan Pakar atau Ahli sebagai pengguna.
+Jangan menggunakan SAW atau TOPSIS.
+Jangan memasukkan fitur AI.
+Jangan membuat diagnosis psikologis.
+Jika informasi belum tersedia, tandai sebagai [ASUMSI-XX].
